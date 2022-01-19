@@ -5,12 +5,12 @@
 class SymfonyCli < Formula
   desc "Symfony CLI helps Symfony developers manage projects, from local code to remote infrastructure"
   homepage "https://symfony.com"
-  version "5.1.0"
+  version "5.2.0"
   license "AGPL-3.0"
 
   on_macos do
-    url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.1.0/symfony-cli_darwin_all.tar.gz"
-    sha256 "40a468bc1264e7b6dcc6c0831a3f3770166a8259f9e80076c40752214c00fa76"
+    url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.2.0/symfony-cli_darwin_all.tar.gz"
+    sha256 "00fd98c6ab3c6355eccdfffd1c54f2885813e9051e746c53ae63334ab235995e"
 
     def install
       bin.install "symfony"
@@ -18,17 +18,17 @@ class SymfonyCli < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.1.0/symfony-cli_linux_arm64.tar.gz"
-      sha256 "f9781b438c5180e7bd8002f195293a4272431d7fb58d9b638598433ba807577e"
+    if Hardware::CPU.intel?
+      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.2.0/symfony-cli_linux_amd64.tar.gz"
+      sha256 "8e4ac2ab6c161adbe0bcc9dcf77849c22dfbcd00d3730a38f4b0cdde9a435bcb"
 
       def install
         bin.install "symfony"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.1.0/symfony-cli_linux_amd64.tar.gz"
-      sha256 "133792ae099e0e7784df8bbf9609fdc15da144b27ecfc5c862c476302b4411f8"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.2.0/symfony-cli_linux_arm64.tar.gz"
+      sha256 "29b38c2adfa638a80c7f9150c99059433f135065a94f9a86745e1fa9f7c692ef"
 
       def install
         bin.install "symfony"
