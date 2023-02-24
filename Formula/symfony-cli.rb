@@ -5,14 +5,14 @@
 class SymfonyCli < Formula
   desc "Symfony CLI helps Symfony developers manage projects, from local code to remote infrastructure"
   homepage "https://symfony.com"
-  version "5.5.0"
+  version "5.5.1"
   license "AGPL-3.0"
 
   depends_on "git" => :optional
 
   on_macos do
-    url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.5.0/symfony-cli_darwin_all.tar.gz"
-    sha256 "93e596c2ce7f9cfed7b01286be8d8c6e7533b5897a58403f1de7f0c1bccd10a7"
+    url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.5.1/symfony-cli_darwin_all.tar.gz"
+    sha256 "d4457c8834d10e6796529e1f62fb3b75308a441af1f5a24567df8b26e1db7221"
 
     def install
       bin.install "symfony"
@@ -21,16 +21,24 @@ class SymfonyCli < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.5.0/symfony-cli_linux_arm64.tar.gz"
-      sha256 "0dd528a8d20d13866edb6f1497ce83dc8b8e3a4202c4d29e7495f45e2a9f84ed"
+      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.5.1/symfony-cli_linux_arm64.tar.gz"
+      sha256 "f3b8a53f9a4e1bc85697614c1360890c16170b5a8c715708e0a9434275aebccd"
 
       def install
         bin.install "symfony"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.5.0/symfony-cli_linux_amd64.tar.gz"
-      sha256 "cd7cf45853368ac2587fb2b14f69837e43ee67124b4b2e03fa2303a3163faebc"
+      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.5.1/symfony-cli_linux_amd64.tar.gz"
+      sha256 "1a4f44942cfac28dcd516d660d0b208fe553b17230ead36306485f7221e4fb29"
+
+      def install
+        bin.install "symfony"
+      end
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.5.1/symfony-cli_linux_armv6.tar.gz"
+      sha256 "6b5c1f1b8d2d13b578b8ff209c1f4019954f2d1983f3a432a9efdc101d3b2e8f"
 
       def install
         bin.install "symfony"
