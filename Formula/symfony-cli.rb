@@ -5,14 +5,14 @@
 class SymfonyCli < Formula
   desc "Symfony CLI helps Symfony developers manage projects, from local code to remote infrastructure"
   homepage "https://symfony.com"
-  version "5.7.6"
+  version "5.7.7"
   license "AGPL-3.0"
 
   depends_on "git" => :optional
 
   on_macos do
-    url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.7.6/symfony-cli_darwin_all.tar.gz"
-    sha256 "c228c3b19290a919afee7540aa32706819a5c37914d0278eb55b08219fd93d53"
+    url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.7.7/symfony-cli_darwin_all.tar.gz"
+    sha256 "8362a9c9b849e707a8be3b3f8b4502670893bcf8a5db406b991b1186c3f1199c"
 
     def install
       bin.install "symfony"
@@ -21,24 +21,24 @@ class SymfonyCli < Formula
 
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.7.6/symfony-cli_linux_armv6.tar.gz"
-      sha256 "a171dd66e88e4cf9c2d5fbb8044c9b5a53bfd079b306b3953b6ec0cd616b3fc1"
-
-      def install
-        bin.install "symfony"
-      end
-    end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.7.6/symfony-cli_linux_arm64.tar.gz"
-      sha256 "e36dc213ff6c2ae7a9372c02bad59dc84fce98e8bb672991c19e1f74f670266a"
+      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.7.7/symfony-cli_linux_armv6.tar.gz"
+      sha256 "fbc940d3069d8b595473ff74eb71e13814235637d97c8aa8dc14eff76a0258de"
 
       def install
         bin.install "symfony"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.7.6/symfony-cli_linux_amd64.tar.gz"
-      sha256 "4d384e9a4f4818e1e18d17acb33081ae4751d1413221c293db9baf70c85d5293"
+      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.7.7/symfony-cli_linux_amd64.tar.gz"
+      sha256 "98dcc5dd7fcac8a0ad4b933eefe359a1cb91c2360bbd7d37eb34ed7dcae1cff6"
+
+      def install
+        bin.install "symfony"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.7.7/symfony-cli_linux_arm64.tar.gz"
+      sha256 "5fed42044cb8e741cac6687f993f3bab737fa17f750639f8193b5fd992a254e3"
 
       def install
         bin.install "symfony"
