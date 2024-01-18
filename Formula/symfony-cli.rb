@@ -5,14 +5,14 @@
 class SymfonyCli < Formula
   desc "Symfony CLI helps Symfony developers manage projects, from local code to remote infrastructure"
   homepage "https://symfony.com"
-  version "5.8.1"
+  version "5.8.2"
   license "AGPL-3.0"
 
   depends_on "git" => :optional
 
   on_macos do
-    url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.8.1/symfony-cli_darwin_all.tar.gz"
-    sha256 "75c3df5aa16e568913a3a2c5eb2962ead04a6903109aba928091e19956812d56"
+    url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.8.2/symfony-cli_darwin_all.tar.gz"
+    sha256 "7f01a0718d6d446b9195b73edcdc9dccdeafa909495ebdda1d51301cb44bb499"
 
     def install
       bin.install "symfony"
@@ -20,25 +20,25 @@ class SymfonyCli < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.8.1/symfony-cli_linux_amd64.tar.gz"
-      sha256 "84fbc8eac18d1906b2379f5e9a1b13eb34fb1b1e612ec6ac11f61357631fdf43"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.8.2/symfony-cli_linux_armv6.tar.gz"
+      sha256 "b9852ad132d699e5839850709596f0ee0b45d208941190935c30fa349c29deec"
 
       def install
         bin.install "symfony"
       end
     end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.8.1/symfony-cli_linux_armv6.tar.gz"
-      sha256 "96335d27fb4ee778f16d8b9ade3f63be746db9ec1d850139416b7cec23f8bdf3"
+    if Hardware::CPU.intel?
+      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.8.2/symfony-cli_linux_amd64.tar.gz"
+      sha256 "2b32b70218077d4b0cf8bc24bc5cce91fa24d53dac595b3c2b3bde7acd911a79"
 
       def install
         bin.install "symfony"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.8.1/symfony-cli_linux_arm64.tar.gz"
-      sha256 "05c5d723a606f3f2e4e4f6c1a6b319a3e3e8bb60d17dcf1f8fbec392a4099256"
+      url "https://github.com/symfony-cli/symfony-cli/releases/download/v5.8.2/symfony-cli_linux_arm64.tar.gz"
+      sha256 "2f72fe8befea384a5a21f6260e3d8a4df8f70d9f5eac02bcfe0a9614581b157e"
 
       def install
         bin.install "symfony"
